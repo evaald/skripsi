@@ -49,7 +49,7 @@ useEffect(() => {
             label="RSUD KANJURUHAN KEPANJEN"/>
         </div>
         <div className="my-4 p-4 text-center lg:text-left bg-[#C0EBA6] rounded-2xl shadow-lg">
-          <div className="lg:hidden italic text-8xl font-black"> 
+          <div className="lg:hidden italic text-2xl font-black"> 
             <h1>SELAMAT DATANG </h1>
             <h1 >ADMIN PATIMURA </h1>
           </div>
