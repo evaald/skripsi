@@ -54,11 +54,7 @@ if (dummyUser.role === "admin" || dummyUser.role === "manajemen") {
             label="UCD SISTEM LAPORAN MORBIDITAS RAWAT INAP RSUD KANJURUHAN KEPANJEN"
           />
         </div>
-        <div className="sm:mx-auto sm:w-full sm:max-w-md text-center text-2xl font-bold italic text-gray-900">
-        <h1>Welcome to</h1>
-        <h1>UCD SISTEM LAPORAN MORBIDITAS</h1>
-        <h1>RSUD KANJURUHAN KEPANJEN</h1>
-        </div>
+        
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-10 text-center text-xl font-bold tracking-tight text-gray-900">
               Sign in to your account
@@ -126,13 +122,24 @@ if (dummyUser.role === "admin" || dummyUser.role === "manajemen") {
         </div>
       </div>
 
-      <div className="hidden lg:block lg:w-1/2 lg:bg-radial lg:from-emerald-200 lg:from-40% lg:to-emerald-400 lg:flex lg:items-center lg:justify-center">
+      <div
+        className="hidden lg:block lg:w-1/2 lg:rounded-l-4xl lg:flex lg:items-center lg:justify-center lg:flex-col lg:py-4"
+        style={{
+          background: "linear-gradient(135deg, #C0EBA6, #88C98D)",
+        }}
+      >
+        <div className="sm:mx-auto sm:w-full sm:max-w-md text-center italic text-gray-900">
+          <p className="font-bold text-5xl pb-2">Welcome to</p>
+          <h2 className="font-semibold text-2xl pb-2">UCD SISTEM LAPORAN MORBIDITAS</h2>
+          <h2 className="font-semibold text-lg">RSUD KANJURUHAN KEPANJEN</h2>
+        </div>
         <img
           src={LoginPictures}
           alt="Login Background"
           className="w-3/4 h-3/4 object-cover"
         />
       </div>
+
     </div>
   );
 }
