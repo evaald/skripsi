@@ -1,10 +1,15 @@
 
-function Button({ label, onClick, className }) {
+function Button({ label, onClick, className, src, alt, classNameImg }) {
   return (
     <button
       onClick={onClick}
-      className={className}
+      className={`cursor-pointer ${className}`}
     >
+    <img
+      src={src}
+      alt={alt}
+      className={classNameImg}
+    />
       {label}
     </button>
   );

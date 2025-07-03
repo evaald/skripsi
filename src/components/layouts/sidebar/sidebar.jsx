@@ -2,6 +2,9 @@ import Logo from "../../elements/logo";
 import MenuSidebar from "../../fragments/menuSidebar/index";
 import Profile from "../../../components/imageAndVector/icons8-circled-user-female-skin-type-7-96.webp";
 import LogoRSUD from "../../../components/imageAndVector/download.webp";
+import Button from "../../elements/button/index";
+import { Link } from "react-router-dom";
+import IconLogout from "../../../components/imageAndVector/icons8-logout-90.png";
 
 
 function Sidebar() {
@@ -23,6 +26,18 @@ function Sidebar() {
           label="RSUD KANJURUHAN KEPANJEN"
         />
         <MenuSidebar />
+        <div className="w-full">
+            <Link to="/">
+              <Button
+                className={"flex flex-row justify-start mt-16 items-center text-left px-2 p-4 w-full rounded-full bg-yellow-300 shadow-sm font-black hover:bg-yellow-400 hover:shadow-md"}
+                label={"Logout"}
+                src={IconLogout}
+                alt={"Dashboard Icon"}
+                classNameImg={"h-8 w-8 mx-2"}
+              />
+            </Link>
+          </div>
+
     </div>
   );
 }

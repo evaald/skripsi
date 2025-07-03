@@ -12,7 +12,7 @@ function Tabel({ dataRekap }){
           {location.pathname === "/morbiditas" && 
           (
             <>
-              <div className="table-header-group bg-[#C0EBA6] p-2">
+              <div className="table-header-group bg-[#C0EBA6] rounded-2xl p-2">
                 <div className="table-row text-center ">
                   <div className="table-cell rounded-tl-lg p-2">No</div>
                   <div className="table-cell p-2">Diagnosa</div>
@@ -46,7 +46,7 @@ function Tabel({ dataRekap }){
           {location.pathname === "/10penyakitterbanyak" && 
           (
             <>
-              <div className="table-header-group bg-[#C0EBA6] p-2">
+              <div className="table-header-group bg-[#C0EBA6] rounded-2xl p-2">
                 <div className="table-row text-center ">
                   <div className="table-cell rounded-tl-lg p-2">No</div>
                   <div className="table-cell p-2">Diagnosa</div>

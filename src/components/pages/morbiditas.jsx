@@ -30,7 +30,7 @@ const dataUntukPdf = startDate && endDate && ruangan?
   return (
     <div className="lg:flex lg:w-full ">
       <FragmenHamburgerMenu />
-      <div className="mx-4 min-h-screen lg:ml-66 lg:w-full lg:pl-10 lg:py-4 lg:pb-4 lg:bg-white lg:z-50 lg:rounded-4xl lg:shadow-lg"> 
+      <div className="mx-4 min-h-screen lg:pr-8 lg:ml-66 lg:w-full lg:pl-10 lg:py-4 lg:pb-4 lg:bg-white lg:z-50 lg:rounded-4xl lg:shadow-lg"> 
         <div className="mt-2 text-center p-8 bg-[#C0EBA6] rounded-2xl shadow-lg">
           <h1 className="text-2xl font-bold">LAPORAN MORBIDITAS</h1>
         </div>
@@ -56,7 +56,7 @@ const dataUntukPdf = startDate && endDate && ruangan?
             {({ loading }) =>
               loading ? "Loading..." : (
                 <Button
-                  className="bg-yellow-500 p-3 w-56 rounded-full mt-8 mb-4"
+                  className="bg-yellow-300 p-3 w-56 rounded-full mt-8 mb-4"
                   label="Download PDF"
                 />
               )
