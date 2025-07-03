@@ -23,6 +23,7 @@ function Sidebar() {
           alt="Logo RSUD"
           className="p-4 rounded-full h-24 w-24"
           className2="hidden lg:flex justify-center mb-8"
+          classNameLabel="mt-2 text-center text-sm font-semibold text-gray-800"
           label="RSUD KANJURUHAN KEPANJEN"
         />
         <MenuSidebar />
