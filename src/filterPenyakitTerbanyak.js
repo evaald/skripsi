@@ -1,10 +1,19 @@
 import { rekapData } from "./rekapDataMorbiditas";
 
 function filterPenyakitTerbanyak(data, startDate, endDate, ruangan) {
-  const parseDate = (str) => {
-    const [day, month, year] = str.split("/");
-    return new Date(year, month - 1, day);
-  };
+   function parseDate(str) {
+  if (typeof str !== "string") {
+    console.warn("parseDate: input bukan string:", str);
+    return null; // atau bisa throw error, atau handle sesuai kebutuhan
+  }
+  const parts = str.split("/");
+  if (parts.length !== 3) {
+    console.warn("parseDate: format tanggal salah:", str);
+    return null;
+  }
+  const [day, month, year] = parts;
+  return new Date(year, month - 1, day);
+}
 
   const start = parseDate(startDate);
   const end = parseDate(endDate);

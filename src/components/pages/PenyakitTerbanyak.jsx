@@ -3,7 +3,7 @@ import Tabel from "../elements/tabel";
 import FilterDataPasien from "../fragments/filterDataPasien";
 import FragmenHamburgerMenu from "../fragments/hamburgerMenu";
 import { rekapData } from "../../rekapDataMorbiditas";
-import { dataPasien } from "../../data";
+// import { dataPasien } from "../../data";
 import filterPenyakitTerbanyak from "../../filterPenyakitTerbanyak";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import LaporanPDF from "../elements/pdf/pdf";
@@ -13,6 +13,10 @@ import { useSearchParams } from "react-router-dom";
 
 
 function PenyakitTerbanyak() {
+
+  const dataPasien = localStorage.getItem('uploadedPasien')
+  ? JSON.parse(localStorage.getItem('uploadedPasien'))
+  : [];
 
   const rekap = rekapData(dataPasien);
   console.log(rekap);
@@ -25,9 +29,10 @@ const ruangan = searchParams.get("ruangan");
 
 console.log("ini start date :", startDate, "dan ini end date", endDate, "dan ini ruangan", ruangan);
 
+
 const hasilFilter = startDate && endDate
   ? filterPenyakitTerbanyak(dataPasien, startDate, endDate, ruangan)
-  : {};
+  : filterPenyakitTerbanyak(dataPasien, "01/07/2025", "31/07/2025", null);;
 
 
 

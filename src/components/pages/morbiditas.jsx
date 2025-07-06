@@ -3,7 +3,7 @@ import Tabel from "../elements/tabel";
 import FilterDataPasien from "../fragments/filterDataPasien";
 import FragmenHamburgerMenu from "../fragments/hamburgerMenu";
 import filterDataByTanggal from "../../filteredData";
-import { dataPasien } from "../../data";
+// import { dataPasien } from "../../data";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import LaporanPDF from "../elements/pdf/pdf";
 import { useSearchParams } from "react-router-dom";
@@ -19,9 +19,13 @@ const ruangan = searchParams.get("ruangan");
 
 console.log("ini start date :", startDate, "dan ini end date", endDate, "dan ini ruangan", ruangan);
 
+const dataPasien = localStorage.getItem('uploadedPasien')
+  ? JSON.parse(localStorage.getItem('uploadedPasien'))
+  : [];
+
 const hasilFilter = startDate && endDate
   ? filterDataByTanggal(dataPasien, startDate, endDate, ruangan)
-  : {};
+  : filterDataByTanggal(dataPasien, "01/07/2025", "31/07/2025", null);
 
 const dataUntukPdf = startDate && endDate && ruangan? 
   dataPdfMorbiditas (dataPasien ,startDate, endDate, ruangan) : {};
