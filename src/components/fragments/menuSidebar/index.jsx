@@ -39,7 +39,7 @@ function MenuSidebar() {
           <div className="w-full">
             <Link to="/10penyakitterbanyak">
               <Button
-                className={"flex flex-row justify-center items-center text-left px-2 p-4 w-full rounded-full hover:bg-white"}
+                className={"flex flex-row lg:justify-center lg:items-center text-left px-2 p-4 w-full rounded-full hover:bg-white"}
                 label={"Penyakit Terbanyak"}
                 src={IconButtonSidebatPenyakitTerbanyak}
                 alt={"Dashboard Icon"}
@@ -79,7 +79,7 @@ function MenuSidebar() {
         <div className="w-full">
           <Link to="/10penyakitterbanyak">
             <Button
-              className={"flex flex-row justify-center items-center text-left px-2 p-4 w-full rounded-full hover:bg-white"}
+              className={"flex flex-row lg:justify-center lg:items-center text-left px-2 p-4 w-full rounded-full hover:bg-white"}
               label={"Penyakit Terbanyak"}
               src={IconButtonSidebatPenyakitTerbanyak}
               alt={"Dashboard Icon"}
@@ -119,7 +119,7 @@ function MenuSidebar() {
         <div className="w-full">
           <Link to="/10penyakitterbanyak">
             <Button
-              className={"flex flex-row justify-center items-center text-left px-2 p-4 w-full rounded-full bg-white shadow-md"}
+              className={"flex flex-row lg:justify-center lg:items-center text-left px-2 p-4 w-full rounded-full bg-white shadow-md"}
               label={"Penyakit Terbanyak"}
               src={IconButtonSidebatPenyakitTerbanyak}
               alt={"Dashboard Icon"}

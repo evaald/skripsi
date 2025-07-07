@@ -16,8 +16,9 @@ const [searchParams] = useSearchParams();
 const startDate = searchParams.get("start");
 const endDate = searchParams.get("end");
 const ruangan = searchParams.get("ruangan");
+const gender = searchParams.get("gender")
 
-console.log("ini start date :", startDate, "dan ini end date", endDate, "dan ini ruangan", ruangan);
+console.log("ini start date :", startDate, "dan ini end date", endDate, "dan ini ruangan", ruangan, "ini gender", gender);
 
 const dataPasien = localStorage.getItem('uploadedPasien')
   ? JSON.parse(localStorage.getItem('uploadedPasien'))
@@ -26,6 +27,28 @@ const dataPasien = localStorage.getItem('uploadedPasien')
 const hasilFilter = startDate && endDate
   ? filterDataByTanggal(dataPasien, startDate, endDate, ruangan)
   : filterDataByTanggal(dataPasien, "01/07/2025", "31/07/2025", null);
+  console.log("Hasil filter data pasien:", hasilFilter);
+
+const jenisKelaminFiltered = gender
+  ? Object.fromEntries(
+      Object.entries(hasilFilter).filter(([penyakit, data]) => {
+        const jumlahLaki = parseInt(data["JUMLAH LAKI-LAKI"] || 0);
+        const jumlahPerempuan = parseInt(data["JUMLAH PEREMPUAN"] || 0);
+
+        if (gender === "Laki-Laki") {
+          return jumlahLaki > jumlahPerempuan;
+        } else if (gender === "Perempuan") {
+          return jumlahPerempuan > jumlahLaki;
+        }
+        return true;
+      })
+    )
+  : hasilFilter;
+
+// Cek apakah hasilnya kosong
+const isGenderFilteredEmpty = gender && Object.keys(jenisKelaminFiltered).length === 0;
+
+
 
 const dataUntukPdf = startDate && endDate && ruangan? 
   dataPdfMorbiditas (dataPasien ,startDate, endDate, ruangan) : {};
@@ -40,7 +63,15 @@ const dataUntukPdf = startDate && endDate && ruangan?
         </div>
 
         <FilterDataPasien data={dataPasien}/>
-        <Tabel dataRekap={hasilFilter} />
+        {/* <Tabel dataRekap={hasilFilter} /> */}
+        {isGenderFilteredEmpty ? (
+            <div className="text-center text-red-600 font-semibold mt-6">
+              Tidak ada diagnosa dengan kriteria jenis kelamin {gender} yang dominan.
+            </div>
+          ) : (
+            <Tabel dataRekap={jenisKelaminFiltered} />
+          )}
+
 
        <div className="flex justify-center">
           <PDFDownloadLink
